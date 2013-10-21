@@ -48,6 +48,11 @@ define('WPLANG', '');
 define('WP_CONTENT_DIR', APP_ROOT . '/public/content');
 define('WP_CONTENT_URL', WP_HOME . '/content');
 
+// ===========================================
+// Limit Post Revisions Stored in the Database
+// ===========================================
+define('WP_POST_REVISIONS', 3);
+
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
 	define('ABSPATH', dirname(__FILE__) . '/wp/');

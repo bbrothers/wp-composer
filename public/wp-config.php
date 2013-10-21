@@ -1,15 +1,23 @@
 <?php
-
-$env = getenv('ENV');
-
-if(!empty($env))
-	require "$env/config/wp-config.php";
-else
-	require 'production/config/wp-config.php';
-
+// =================================
+// Custom Application Root Directory
+// =================================
+define('APP_ROOT', dirname(__DIR__));
 
 // ================================================
-// You almost certainly do not want to change these
+// Get Environment Specific Configuration
+// ================================================
+$env = getenv('ENV');
+if(empty($env)) $env = 'production';
+require APP_ROOT. "/config/$env/wp-config.php";
+
+// =================================
+// Composer Autoload
+// =================================
+require APP_ROOT . '/vendor/autoload.php';
+
+// ================================================
+// Database Options that are Standard
 // ================================================
 define('DB_CHARSET', 'utf8');
 define('DB_COLLATE', '');
@@ -37,8 +45,8 @@ define('WPLANG', '');
 // ========================
 // Custom Content Directory
 // ========================
-define('WP_CONTENT_DIR', dirname( __FILE__ ) . '/content');
-define('WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/content');
+define('WP_CONTENT_DIR', APP_ROOT . '/public/content');
+define('WP_CONTENT_URL', WP_HOME . '/content');
 
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )

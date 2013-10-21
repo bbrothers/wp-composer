@@ -27,9 +27,9 @@
   },
   "extra": {
     "installer-paths": {
-      "content/plugins/{$name}/": ["type:wordpress-plugin"]
+      "public/content/plugins/{$name}/": ["type:wordpress-plugin"]
     },
-    "webroot-dir": "wp",
+    "webroot-dir": "public/wp",
     "webroot-package": "wordpress"
   }
 }

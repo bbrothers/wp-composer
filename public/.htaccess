@@ -1,0 +1,22 @@
+# ------------------------------------------------------------------------------
+# | Disable access to wp-config file                                           |
+# ------------------------------------------------------------------------------
+<Files wp-config.php>
+	Order Allow,Deny
+	Deny from all
+</Files>
+
+# ------------------------------------------------------------------------------
+# | Disable Directory Browsing                                                 |
+# ------------------------------------------------------------------------------
+Options All -Indexes
+
+# ------------------------------------------------------------------------------
+# | Redirect to New Login Directory                                            |
+# ------------------------------------------------------------------------------
+# Redirect /wp-admin and /admin to /wp/wp-admin
+RewriteRule ^admin/(.*)$ /wp/wp-admin/$1 [QSA,L]
+RewriteRule ^wp-admin/(.*)$ /wp/wp-admin/$1 [QSA,L]
+# Redirect /wp-login and /login to /wp/wp-login
+RewriteRule ^login/(.*)$ /wp/wp-login/$1 [QSA,L]
+RewriteRule ^wp-login/(.*)$ /wp/wp-login/$1 [QSA,L]

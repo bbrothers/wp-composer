@@ -1,0 +1,36 @@
+# ------------------------------------------------------------------------------
+# | Pursh Requests to Public Folder                                            |
+# ------------------------------------------------------------------------------
+# Where possible, this should be done in a .conf file (i.e. httpd.conf)
+<IfModule mod_rewrite.c>
+   RewriteEngine on
+   RewriteRule    ^$ public/    [L]
+   RewriteRule    (.*) public/$1 [L]
+</IfModule>
+
+# ------------------------------------------------------------------------------
+# | File access                                                                |
+# ------------------------------------------------------------------------------
+# Block access to directories without a default document.
+
+<IfModule mod_autoindex.c>
+    Options -Indexes
+</IfModule>
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Block access to hidden files and directories.
+# This includes directories used by version control systems such as Git and SVN.
+
+<IfModule mod_rewrite.c>
+    RewriteCond %{SCRIPT_FILENAME} -d [OR]
+    RewriteCond %{SCRIPT_FILENAME} -f
+    RewriteRule "(^|/)\." - [F]
+</IfModule>
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Block access to composer files.
+
+<IfModule mod_alias.c>
+	RedirectMatch 403 /vendor(/|$)
+	RedirectMatch 403 /composer\.(json|lock)
+</IfModule>

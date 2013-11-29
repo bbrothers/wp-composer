@@ -9,10 +9,11 @@
       "package": {
         "name": "wordpress",
         "type": "webroot",
-        "version": "3.6.1",
-        "dist": {
-          "type": "zip",
-          "url": "https://github.com/WordPress/WordPress/archive/3.6.1.zip"
+        "version": "3.7.1",
+        "source": {
+          "type": "git",
+          "url": "https://github.com/WordPress/WordPress.git",
+          "reference": "3.7.1"
         },
         "require" : {
           "fancyguy/webroot-installer": "1.1.0"

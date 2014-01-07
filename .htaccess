@@ -31,6 +31,5 @@
 # Block access to composer files.
 
 <IfModule mod_alias.c>
-	RedirectMatch 403 /vendor(/|$)
 	RedirectMatch 403 /composer\.(json|lock)
 </IfModule>

@@ -18,5 +18,5 @@ Options All -Indexes
 RewriteRule ^admin/(.*)$ /wp/wp-admin/$1 [QSA,L]
 RewriteRule ^wp-admin/(.*)$ /wp/wp-admin/$1 [QSA,L]
 # Redirect /wp-login and /login to /wp/wp-login
-RewriteRule ^login/(.*)$ /wp/wp-login/$1 [QSA,L]
-RewriteRule ^wp-login/(.*)$ /wp/wp-login/$1 [QSA,L]
+RewriteRule ^login$ /wp/wp-login.php [QSA,L]
+RewriteRule ^wp-login.php$ /wp/wp-login.php [QSA,L]

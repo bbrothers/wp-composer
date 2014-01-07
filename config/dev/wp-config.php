@@ -17,5 +17,5 @@ $table_prefix  = 'wp_';
 // ===================================================
 define('WP_DEBUG', true);
 
-define('WP_HOME','http://wordpress.dev/');
+define('WP_HOME','http://wordpress.dev');
 define('WP_SITEURL', WP_HOME . '/wp');

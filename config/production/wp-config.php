@@ -28,5 +28,5 @@ define( 'DISALLOW_FILE_MODS', true );
 // ===================================================
 // Define URLS for Home page and WordPress files
 // ===================================================
-define('WP_HOME','http://mysite.com/');
+define('WP_HOME','http://mysite.com');
 define('WP_SITEURL', WP_HOME . '/wp');
